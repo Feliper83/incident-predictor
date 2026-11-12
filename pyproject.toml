@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "incident-predictor"
+version = "0.1.0"
+description = "Predicts incidents ahead of time from leading indicators in time-series service metrics (CPU, latency, error rate), with a methodologically time-ordered train/test split and a lead-time evaluation metric."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Felipe Feres" }]
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3"]
+
+[project.scripts]
+incident-predictor = "incident_predictor.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["incident_predictor*"]
